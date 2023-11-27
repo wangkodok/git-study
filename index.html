@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .test {
+        background: #00ff00;
+        /* background: #0f0; */
+      }
+      .sticky {
+        position: static;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: olive;
+      }
+    </style>
   </head>
   <body>
-    <h1>깃 / 깃허브 학습</h1>
+    <h1 class="test">깃 / 깃허브 학습</h1>
     <p>개인적으로 깃 / 깃허브 학습하고 있습니다.</p>
     <!-- 깃으로 했던 경험 -->
     <ul class="list">
@@ -37,10 +50,84 @@
     <div>브랜치 생성</div>
     <div>브랜치 생성</div>
     <div>브랜치 생성</div>
+    <div>브랜치 생성</div>
+
+    <div class="red">red</div>
+    <div class="blue">blue</div>
+    <div id="blue">blue</div>
+
+    <!-- sticky 스크롤 내리다가 요소가 보이고 고정한다.  -->
+    <div class="sticky"></div>
+
+    <script>
+      const el = document.querySelector("style");
+      const sheet = el.sheet;
+      const rules = sheet.cssRules;
+      const rule = rules[0];
+
+      sheet.insertRule(".red{background:red}", rules.length);
+      sheet.insertRule(".blue{background:blue}", rules.length);
+      sheet.insertRule("#blue{background:lime}", rules.length);
+    </script>
+
+    <div class="git-branch"></div>
+
+    <!-- form 사용 -->
+    <form action="https://www.youtube.com/results?">
+      <input type="text" id="my-name" name="search_query" />
+      <button>유튜브 검색</button>
+    </form>
+
+    <div>
+      <h1>Race Registration!</h1>
+      <form action="/index.html">
+        <label for="first">first Name</label>
+        <input type="text" id="first" name="first-name" required />
+        <label for="last">last Name</label>
+        <input type="text" id="last" name="last-name" required />
+
+        <div>
+          <input type="radio" name="race" id="funrun" value="funrun" />
+          <label for="funrun">Fun Run 5k</label>
+        </div>
+        <div>
+          <input type="radio" name="race" id="half" value="half" />
+          <label for="half">Half Marathon</label>
+        </div>
+        <div>
+          <input type="radio" name="race" id="full" value="full" />
+          <label for="full">Full Marathon</label>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <div>
+          <label for="division">Select Age Group</label>
+          <select name="division" id="division">
+            <option value="kids">under 18</option>
+            <option value="ya">18~30</option>
+            <option value="adults">30~50</option>
+            <option value="seniors">50</option>
+          </select>
+        </div>
+        <button>Register</button>
+      </form>
+    </div>
+
     <script>
       const lastTag = document.querySelector(".charset");
       const test = "테스트: 특정 코드 지우기";
       lastTag.innerText = "테스트: 특정 코드 지우기";
+
+      const gitBranch = document.querySelector(".git-branch");
+      console.dir(gitBranch);
+      gitBranch.textContent = "브랜치 생성";
+
+      let color = window.getComputedStyle(gitBranch).color;
+      console.log((color = "rgb(0, 0, 255)"));
     </script>
   </body>
 </html>
